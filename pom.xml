@@ -79,6 +79,7 @@
 		<db.driverClassName>org.hsqldb.jdbcDriver</db.driverClassName>
 		<db.username>sa</db.username>
 		<db.password></db.password>
+		<db.dialect>org.hibernate.dialect.HSQLDialect</db.dialect>
 	</properties>
 
 
