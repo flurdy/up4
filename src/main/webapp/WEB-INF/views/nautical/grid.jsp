@@ -28,8 +28,7 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 		<!-- <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/jquery-ui-1.8.custom.min.js"></script> -->
-		<script type="text/javascript">
-			<tiles:insertAttribute name="cargoJQuery"/>
+		<script type="text/javascript">			
 				function loader(){
 					document.getElementById("stern").style.display="block";
 					document.getElementById("aft").style.display="block";
