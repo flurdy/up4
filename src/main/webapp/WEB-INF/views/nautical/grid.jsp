@@ -97,8 +97,8 @@
 								<div id="aft" class="compartment">
 									<ul class="horizontal">
 										<li><a href="http://flurdy.com/contact/">contact</a></li>
-										<li><a wicket:id="aboutLink" href="http://code.flurdy.com/grid/snaps">project</a></li>
-										<li><a wicket:id="helpLink" href="http://code.flurdy.com/grid/snaps">help</a></li>
+										<li><a wicket:id="aboutLink" href="http://github.com/flurdy/up4">project</a></li>
+										<li><a wicket:id="helpLink" href="http://code.flurdy.com">help</a></li>
 									</ul>
 								</div>
 								<div id="stern" class="compartment">
