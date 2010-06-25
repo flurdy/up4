@@ -10,6 +10,7 @@
 		<put-attribute name="bowTitle" type="string" value="up4"/>
 		<put-attribute name="version" type="string" value="v.0.0.1&amp;alpha;"/>
 		<put-attribute name="port" type="string" value=""/>
+		<put-attribute name="starboard" type="string" value=""/>
 		<put-attribute name="dragons">
 			<definition template="/WEB-INF/views/nautical/dragons.jsp">
 				<put-attribute name="analyticsId" value="var pageTracker = _gat._getTracker('123');"/>
@@ -20,6 +21,7 @@
 	<definition name="index" extends="gridTemplate">
 		<put-attribute name="pageTitle" type="string" value=""/>
 		<put-attribute name="cargo" value="/WEB-INF/views/front.jsp"/>
+		<put-attribute name="starboard" value="/WEB-INF/views/frontStarboard.jsp"/>
 	</definition>
 
 	<!--

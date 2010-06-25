@@ -71,7 +71,7 @@
 										<sec:authorize ifNotGranted="ROLE_USER">
 											<li><a href="${pageContext.request.contextPath}/join.html">join</a></li>
 										</sec:authorize>
-										<li><a href="${pageContext.request.contextPath}/about.html">about</a></li>
+										<li><a href="http://code.flurdy.com">about</a></li>
 									</ul>
 								</div>
 								<div id="keel" class="structure">
@@ -92,13 +92,13 @@
 										</div>
 										<div id="bridge" class="compartment"><!--  --></div>
 									</div>
-									<div id="starboard" class="compartment"><!-- site info --></div>
+									<div id="starboard" class="compartment"><tiles:insertAttribute name="starboard" /></div>
 								</div>
 								<div id="aft" class="compartment">
 									<ul class="horizontal">
 										<li><a href="http://flurdy.com/contact/">contact</a></li>
 										<li><a wicket:id="aboutLink" href="http://github.com/flurdy/up4">project</a></li>
-										<li><a wicket:id="helpLink" href="http://code.flurdy.com">help</a></li>
+										<li><a wicket:id="helpLink" href="http://github.com/flurdy/up4">help</a></li>
 									</ul>
 								</div>
 								<div id="stern" class="compartment">

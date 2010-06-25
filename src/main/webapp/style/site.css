@@ -70,7 +70,7 @@ body {  }
 #ballast { width: 35em; padding: 0.5em 2em 2em 2em; min-height: 14em;  }
 
 #port {  width: 1em; min-width: 1em; }
-#starboard {  width: 4em; min-width: 4em;   }
+#starboard {  width: 12em; min-width: 12em;   }
 #hatch { width: 4em; min-width: 4em;   }
 #deck { width: 4em; min-width: 4em;  }
 
@@ -83,7 +83,7 @@ body {  }
 	padding: 0 2em;
 	vertical-align: top;
 	height: 0;
-}
+	}
 #bridge.compartment  {  padding: 0 0; }
 
 #ama { padding: 0.3em 0 0 1em;  }
@@ -150,5 +150,5 @@ body {  }
 #ama > .compartment > iframe, #ama > .compartment img { padding: 0.5em; }
 
 
-#starboard, #tug, #net, #ama, #hatch, #deck, #port,
+#tug, #net, #ama, #hatch, #deck, #port,
 #foremast, #lighthouse, #buoy { display: none; }
