@@ -11,13 +11,13 @@
 	</parent>
 
 	<groupId>com.flurdy.grid.up4</groupId>
-	<artifactId>up4-assembler-root</artifactId>
+	<artifactId>up4-assembly-root</artifactId>
 	<packaging>pom</packaging>
-	<name>up4 assembler root</name>
-	<description>up4 assembler root pom</description>
+	<name>up4 assembly root</name>
+	<description>up4 assembly root pom</description>
 
 	<modules>
-		<module>up4-assembler-tomcat</module>
+		<module>up4-assembly-tomcat</module>
 	</modules>
 
 </project>

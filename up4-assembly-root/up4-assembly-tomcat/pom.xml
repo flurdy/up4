@@ -6,20 +6,16 @@
 
 	<parent>
 		<groupId>com.flurdy.grid.up4</groupId>
-		<artifactId>up4-assembler-root</artifactId>
+		<artifactId>up4-assembly-root</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../../pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<groupId>com.flurdy.grid.up4</groupId>
-	<artifactId>up4-assembler-tomcat</artifactId>
+	<artifactId>up4-assembly-tomcat</artifactId>
 	<packaging>war</packaging>
-	<name>up4 assemblet tomcat</name>
-	<description>up4 tomcat assembler</description>
-
-
-	<properties>
-	</properties>
+	<name>up4 assembly tomcat</name>
+	<description>up4 tomcat assembly</description>
 
 
 	<build>
@@ -30,9 +26,6 @@
 			</resource>
 		</resources>
 	</build>
-
-	<profiles>
-	</profiles>
 
 
 	<dependencies>
@@ -47,6 +40,18 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 			<scope>provided</scope>
+		</dependency>		
+		<dependency>
+		  	<groupId>${project.groupId}</groupId>
+		 	<artifactId>up4-web</artifactId>
+			<version>${project.version}</version>
+		  	<type>war</type>
+		</dependency>	
+		<dependency>
+		  	<groupId>${project.groupId}</groupId>
+		 	<artifactId>up4-web</artifactId>
+			<version>${project.version}</version>
+		  	<type>pom</type>
 		</dependency>
 	</dependencies>
 

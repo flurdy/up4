@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.flurdy.grid</groupId>
+		<artifactId>grid-parent</artifactId>
+		<version>1.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.flurdy.grid.up4</groupId>
+	<artifactId>up4-root</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>up4 root</name>
+	<description>up4 or upto root pom</description>
+	<url>http://code.flurdy.com</url>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>http://github.com/flurdy/up4/issues/</url>
+	</issueManagement>
+
+	<scm>
+		<url>http://github.com:flurdy/up4</url>
+		<connection>scm:git:git@github.com:flurdy/up4.git</connection>
+		<developerConnection>scm:git:git@github.com:flurdy/up4.git</developerConnection>
+	</scm>
+
+	<modules>
+		<module>up4-web</module>
+		<!--
+		<module>up4-assembly-root</module>
+		-->
+	</modules>
+
+	<repositories>
+		<!--
+		<repository>
+			<id>code-flurdy-repo</id>
+			<name>code@flurdy repository</name>
+			<url>http://code.flurdy.com/nexus/content/groups/public</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
+		-->
+		<repository>
+			<id>code-flurdy-repo</id>
+			<name>code@flurdy repository</name>
+			<url>http://code.flurdy.com/nexus/content/groups/noncentral</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>code-flurdy-repo</id>
+			<name>code@flurdy repository</name>
+			<url>http://code.flurdy.com/nexus/content/groups/noncentral</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+
+	<properties>
+		<slf4j.version>1.5.8</slf4j.version>
+		<spring.version>3.0.2.RELEASE</spring.version>
+		<spring-security.version>3.0.2.RELEASE</spring-security.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>jrebel</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.zeroturnaround</groupId>
+						<artifactId>jrebel-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-rebel-xml</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+		
+	<dependencyManagement>
+		<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+		</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+</project>
+
+

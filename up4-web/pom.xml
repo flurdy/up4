@@ -5,76 +5,26 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.flurdy.grid</groupId>
-		<artifactId>grid-parent</artifactId>
-		<version>1.1-SNAPSHOT</version>
+		<groupId>com.flurdy.grid.up4</groupId>
+		<artifactId>up4-root</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<groupId>code.flurdy.grid</groupId>
-	<artifactId>up4</artifactId>
-	<packaging>war</packaging>
+	<groupId>com.flurdy.grid.up4</groupId>
+	<artifactId>up4-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Up4</name>
-	<description>up4 or upto</description>
-	<url>http://code.flurdy.com</url>
-
-	<issueManagement>
-		<system>Github</system>
-		<url>http://github.com/flurdy/up4/issues/</url>
-	</issueManagement>
-
-	<scm>
-		<url>http://github.com:flurdy/up4</url>
-		<connection>scm:git:git@github.com:flurdy/up4.git</connection>
-		<developerConnection>scm:git:git@github.com:flurdy/up4.git</developerConnection>
-	</scm>
-
-
-	<repositories>
-		<!--
-				<repository>
-					<id>code-flurdy-repo</id>
-					<name>code@flurdy repository</name>
-					<url>http://code.flurdy.com/nexus/content/groups/public</url>
-					<releases><enabled>true</enabled></releases>
-					<snapshots><enabled>false</enabled></snapshots>
-				</repository>
-				-->
-		<repository>
-			<id>code-flurdy-repo</id>
-			<name>code@flurdy repository</name>
-			<url>http://code.flurdy.com/nexus/content/groups/noncentral</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>code-flurdy-repo</id>
-			<name>code@flurdy repository</name>
-			<url>http://code.flurdy.com/nexus/content/groups/noncentral</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+	<packaging>war</packaging>
+	<name>up4 web</name>
+	<description>up4 web app</description>
 
 
 	<properties>
 		<jetty.version>7.0.2.v20100331</jetty.version>
-		<slf4j.version>1.5.8</slf4j.version>
-		<spring.version>3.0.2.RELEASE</spring.version>
-		<spring-security.version>3.0.2.RELEASE</spring-security.version>
+		<tomcat-el.version>6.0.26</tomcat-el.version>
 		<hsqldb.version>1.8.0.10</hsqldb.version>
 		<web.port>8892</web.port>
-		<web.context>/${project.artifactId}</web.context>
+		<web.context>/up4</web.context>
 		<logFolder>target/logs</logFolder>
 		<db.url>jdbc:hsqldb:file:${project.basedir}/target/db/build;shutdown=true</db.url>
 		<db.driverClassName>org.hsqldb.jdbcDriver</db.driverClassName>
@@ -85,6 +35,7 @@
 
 
 	<build>
+		 <finalName>up4</finalName>
 		<resources>
 			<resource>
 				<filtering>true</filtering>
@@ -130,10 +81,11 @@
 					<webAppConfig>
 						<contextPath>${web.context}</contextPath>
 						<!--	<sessionHandler implementation="org.mortbay.jetty.servlet.SessionHandler">
-													<sessionManager implementation="org.mortbay.jetty.servlet.HashSessionManager">
-														<storeDirectory>${basedir}/target/sessions</storeDirectory>
-													</sessionManager>
-												</sessionHandler>	-->
+									<sessionManager implementation="org.mortbay.jetty.servlet.HashSessionManager">
+										<storeDirectory>${basedir}/target/sessions</storeDirectory>
+									</sessionManager>
+								</sessionHandler>	
+						-->
 					</webAppConfig>
 					<systemproperties>
 						<systemproperty>
@@ -154,23 +106,48 @@
 								<exclude>**/*.java</exclude>
 							</excludes>
 						</scanTargetPattern>
-						<!-- <scanTargetPattern>
-													<directory>src/main/resources</directory>
-													<includes>
-														<include>**/*.xml</include>
-													</includes>
-												</scanTargetPattern> -->
 					</scanTargetPatterns>
 				</configuration>
+			<dependencies>
+				<dependency>  
+    				<groupId>org.mortbay.jetty</groupId>  
+				    <artifactId>jsp-2.1-glassfish</artifactId>  
+				    <version>9.1.1.B60.25.p2</version>  
+				</dependency> 
+				<dependency>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>el-api</artifactId>
+					<version>${tomcat-el.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>jasper-el</artifactId>
+					<version>${tomcat-el.version}</version>
+				</dependency> 
+			</dependencies>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
+			    <groupId>org.codehaus.mojo</groupId>
+		    	<artifactId>tomcat-maven-plugin</artifactId>
+		    	<configuration>
+			    	<server>tomcat-djalma</server>
+			        <path>${web.context}</path>
+			        <port>${web.port}</port>
+			    </configuration>
 			</plugin>
+			  <plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1-beta-1</version>
+				<configuration>
+				  <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>				  
+				  <archive>
+				    <manifest>
+				      <addClasspath>true</addClasspath>
+				      <classpathPrefix>lib/</classpathPrefix>
+				    </manifest>
+				  </archive>				  
+				</configuration>
+			  </plugin>
 		</plugins>
 	</build>
 
@@ -308,27 +285,6 @@
 				</plugins>
 			</build>
 		</profile>
-
-		<profile>
-			<id>jrebel</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.zeroturnaround</groupId>
-						<artifactId>jrebel-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>generate-rebel-xml</id>
-								<phase>process-resources</phase>
-								<goals>
-									<goal>generate</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 		
 		<profile>
 			<id>tomcat-build</id>
@@ -355,23 +311,19 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -543,7 +495,7 @@
 		</dependency>
 
 
-<dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
@@ -553,8 +505,9 @@
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
-			<scope>runtime</scope>
+			<scope>provided</scope>
 			<!--
+			<scope>runtime</scope>
 			<scope>provided</scope>
 			<scope>compile</scope>
 			-->
@@ -572,10 +525,30 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
-			<artifactId>jasper-el</artifactId>
-			<version>6.0.26</version>
-			<!-- <scope>compile</scope> -->
+			<artifactId>el-api</artifactId>
+			<version>${tomcat-el.version}</version>
+			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>jasper-el</artifactId>
+			<version>${tomcat-el.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>2.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>el-impl</artifactId>
+            <scope>runtime</scope>
+            <version>2.2</version>
+        </dependency>
+        -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -615,11 +588,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-openid</artifactId>
-			<version>3.0.2.RELEASE</version>
-		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
