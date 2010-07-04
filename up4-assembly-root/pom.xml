@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>up4-assembly-tomcat</module>
+		<module>up4-assembly-jetty</module>
 	</modules>
 
 </project>

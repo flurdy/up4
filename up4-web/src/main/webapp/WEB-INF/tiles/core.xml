@@ -24,32 +24,24 @@
 		<put-attribute name="starboard" value="/WEB-INF/views/frontStarboard.jsp"/>
 	</definition>
 
-	<!--
+
+
+	<definition name="join" extends="gridTemplate">
+		<put-attribute name="pageTitle" type="string" value="join"/>
+		<put-attribute name="cargo" value="/WEB-INF/views/join.jsp"/>
+    </definition>
+
+    <definition name="login" extends="gridTemplate">
+		<put-attribute name="pageTitle" type="string" value="login"/>
+		<put-attribute name="cargo" value="/WEB-INF/views/login.jsp"/>
+	</definition>
+
+    <!--
 
 	<definition name="adminTemplate" extends="gridTemplate">
 		<put-attribute name="pageTitle" type="string" value="admin"/>
 	</definition>
 
-
-	<definition name="login" extends="gridTemplate">
-		<put-attribute name="pageTitle" type="string" value="login"/>
-		<put-attribute name="cargo" value="/WEB-INF/views/login.jsp"/>
-	</definition>
-
-	<definition name="index" extends="gridTemplate">
-		<put-attribute name="pageTitle" type="string" value=""/>
-		<put-attribute name="cargo" value="/WEB-INF/views/front.jsp"/>
-	</definition>
-
-	<definition name="about" extends="gridTemplate">
-		<put-attribute name="pageTitle" type="string" value="about"/>
-		<put-attribute name="cargo" value="/WEB-INF/views/about.jsp"/>
-	</definition>
-
-	<definition name="join" extends="gridTemplate">
-		<put-attribute name="pageTitle" type="string" value="join"/>
-		<put-attribute name="cargo" value="/WEB-INF/views/join.jsp"/>
-	</definition>
 
 	<definition name="registered" extends="gridTemplate">
 		<put-attribute name="pageTitle" type="string" value="registered"/>

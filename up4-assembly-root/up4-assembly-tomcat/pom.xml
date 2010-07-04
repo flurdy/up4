@@ -19,16 +19,12 @@
 
 
 	<build>
-		<resources>
-			<resource>
-				<filtering>true</filtering>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
+		 <finalName>up4</finalName>
 	</build>
 
 
 	<dependencies>
+	<!--
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>jasper-el</artifactId>
@@ -41,6 +37,7 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>		
+	-->	
 		<dependency>
 		  	<groupId>${project.groupId}</groupId>
 		 	<artifactId>up4-web</artifactId>

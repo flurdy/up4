@@ -31,9 +31,7 @@
 
 	<modules>
 		<module>up4-web</module>
-		<!--
 		<module>up4-assembly-root</module>
-		-->
 	</modules>
 
 	<repositories>

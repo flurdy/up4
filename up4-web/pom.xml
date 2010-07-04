@@ -35,7 +35,6 @@
 
 
 	<build>
-		 <finalName>up4</finalName>
 		<resources>
 			<resource>
 				<filtering>true</filtering>
@@ -130,7 +129,6 @@
 			    <groupId>org.codehaus.mojo</groupId>
 		    	<artifactId>tomcat-maven-plugin</artifactId>
 		    	<configuration>
-			    	<server>tomcat-djalma</server>
 			        <path>${web.context}</path>
 			        <port>${web.port}</port>
 			    </configuration>

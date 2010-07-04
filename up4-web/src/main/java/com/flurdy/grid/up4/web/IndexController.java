@@ -27,11 +27,16 @@ public class IndexController {
 
 	
     @RequestMapping("/index.html")
-	public ModelAndView indexHandler(){ log.debug("index"); return returnTemplate("index"); }
+	public ModelAndView indexHandler(){ return returnTemplate("index"); }
 
 	@RequestMapping("/about.html")
-	public ModelAndView aboutHandler(){ log.debug("about"); return returnTemplate("about"); }
+	public ModelAndView aboutHandler(){ return returnTemplate("about"); }
 
+	@RequestMapping("/login.html")
+	public ModelAndView showLoginHandler(){ return returnTemplate("login"); }
+
+	@RequestMapping("/join.html")
+	public ModelAndView showJoinHandler(){ return returnTemplate("join"); }
 }
 
 
